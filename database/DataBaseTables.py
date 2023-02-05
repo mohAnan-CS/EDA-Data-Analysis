@@ -1,10 +1,21 @@
 def create_tables(cursor):
+    _create_sales_outlet_table(cursor)
     _create_sales_target_table(cursor)
     _create_customer_table(cursor)
     _create_transaction_table(cursor)
     _create_products_table(cursor)
     _create_transaction_product(cursor)
     _create_transaction_details(cursor)
+
+
+def _create_sales_outlet_table(cursor):
+    cursor.execute('''create table sales_outlet(
+                        sales_outlet_id int ,
+                        sales_outlet_type varchar(30),
+                        store_square_feet int, 
+                        store_address varchar(30),
+                        primary key(sales_outlet_id));
+                    ''')
 
 
 def _create_sales_target_table(cursor):
@@ -16,7 +27,7 @@ def _create_sales_target_table(cursor):
                         food_goal int,  
                         merchandise_goal int,  
                         total_goal int,  
-                        primary key (sales_outlet_id));
+                        FOREIGN KEY (sales_outlet_id) REFERENCES sales_outlet(sales_outlet_id));
                     ''')
 
 
@@ -38,7 +49,7 @@ def _create_transaction_table(cursor):
                         customer_id int, 
                         sales_outlet_id int,  
                         primary key (transaction_id),
-                        FOREIGN KEY (sales_outlet_id) REFERENCES sales_target(sales_outlet_id),
+                        FOREIGN KEY (sales_outlet_id) REFERENCES sales_outlet(sales_outlet_id),
                         FOREIGN KEY (customer_id) REFERENCES customer(customer_id));
                         ''')
 
