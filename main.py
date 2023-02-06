@@ -1,6 +1,6 @@
 from database import Connector
 from file_operation import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget
-from database.storing import StoreCustomer, StoreProduct
+from database.storing import StoreCustomer, StoreProduct, StoresSalesOutlet
 
 connection = Connector.connect("root", "localhost", "0000")
 database_cursor = connection.cursor()
@@ -9,19 +9,16 @@ database_cursor = connection.cursor()
 database_cursor.execute("USE SalesDataBase")
 # DataBaseTables.create_tables(database_cursor)
 
-# database_cursor.execute("SHOW TABLES")
-#
-# for table_name in database_cursor:
-#     print(table_name)
-
 # ----------------- Read data files ----------------------
 
 # customer_list = ReadCustomer.read_customer_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\customer.csv")
-product_list = ReadProduct.read_product_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\product.csv")
-print(product_list)
-# ReadSalesOutlet.read_sales_outlet_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\sales_outlet.csv")
+# product_list = ReadProduct.read_product_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\product.csv")
+sales_outlet_list = ReadSalesOutlet.read_sales_outlet_file(
+    "C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\sales_outlet.csv")
 # ReadSalesTarget.read_sales_target_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\sales targets.csv")
+# ---------------------------------------------------------
 
-# ------------------ Store data files ---------------------
+# ------------------ Store data files to database---------------------
 # StoreCustomer.store_all(customer_list, database_cursor, connection)
-StoreProduct.store_all(product_list, database_cursor, connection)
+# StoreProduct.store_all(product_list, database_cursor, connection)
+StoresSalesOutlet.store_all(sales_outlet_list, database_cursor, connection)
