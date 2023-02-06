@@ -17,3 +17,13 @@ def create_product_obj(product_id, product_type, product, current_retail_price):
         "current_retail_price": current_retail_price,
     }
     return product_obj
+
+
+def create_sales_outlet_obj(sales_outlet_id, sales_outlet_type, store_square_feet, store_address):
+    sales_outlet_obj = {
+        "sales_outlet_id": sales_outlet_id,
+        "sales_outlet_type": sales_outlet_type,
+        "store_square_feet": store_square_feet,
+        "store_address": store_address,
+    }
+    return sales_outlet_obj
