@@ -1,5 +1,5 @@
 from database import Connector
-from file_operation import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget
+from file_reader import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget
 from database.storing import StoreCustomer, StoreProduct, StoresSalesOutlet
 
 connection = Connector.connect("root", "localhost", "0000")

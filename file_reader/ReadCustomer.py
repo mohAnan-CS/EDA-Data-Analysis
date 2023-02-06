@@ -1,5 +1,5 @@
 import pandas as pd
-from file_operation import ObjectCreator
+from file_reader import ObjectCreator
 
 
 def read_customer_file(path_file):
