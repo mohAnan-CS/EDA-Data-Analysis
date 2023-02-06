@@ -16,6 +16,7 @@ database_cursor = connection.cursor()
 # ----------------- Read data files ----------------------
 
 # ReadData.read_customer_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\customer.csv")
-ReadData.read_product_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\product.csv")
+# ReadData.read_product_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\product.csv")
+ReadData.read_sales_outlet_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\sales_outlet.csv")
 
 # StoreDataDataBase.store_customer(data_customer)
