@@ -12,6 +12,10 @@ database_cursor = connection.cursor()
 #
 # for table_name in database_cursor:
 #     print(table_name)
-ReadData.read_customer_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\customer.csv")
+
+# ----------------- Read data files ----------------------
+
+# ReadData.read_customer_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\customer.csv")
+ReadData.read_product_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\product.csv")
 
 # StoreDataDataBase.store_customer(data_customer)
