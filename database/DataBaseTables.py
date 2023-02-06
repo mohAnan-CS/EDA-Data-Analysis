@@ -66,10 +66,12 @@ def _create_products_table(cursor):
 
 def _create_transaction_product(cursor):
     cursor.execute('''create table transaction_product(
+                        transaction_product_id int , 
                         transaction_id int ,
                         quantity int, 
                         line_item_amount int,
                         product_id int , 
+                        primary key(transaction_product_id),
                         FOREIGN KEY (transaction_id) REFERENCES transaction(transaction_id),
                         FOREIGN KEY (product_id) REFERENCES products(product_id));
                         ''')
