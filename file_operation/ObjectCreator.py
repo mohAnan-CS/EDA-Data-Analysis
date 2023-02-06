@@ -27,3 +27,16 @@ def create_sales_outlet_obj(sales_outlet_id, sales_outlet_type, store_square_fee
         "store_address": store_address,
     }
     return sales_outlet_obj
+
+
+def create_sales_outlet_target_obj(sales_outlet_id, year_month_date, beans_goal, beverage_goal, food_goal, merchandise_goal, total_goal):
+    sales_outlet_target = {
+        "sales_outlet_id": sales_outlet_id,
+        "year_month_date": year_month_date,
+        "beans_goal": beans_goal,
+        "beverage_goal": beverage_goal,
+        "food_goal": food_goal,
+        "merchandise_goal": merchandise_goal,
+        "total_goal": total_goal,
+    }
+    return sales_outlet_target

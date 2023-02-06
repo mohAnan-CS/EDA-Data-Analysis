@@ -43,3 +43,4 @@ def read_sales_outlet_file(path_file):
         sales_outlet_list.append(sales_outlet_obj)
 
     return sales_outlet_list
+
