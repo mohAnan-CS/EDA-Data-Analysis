@@ -1,5 +1,5 @@
 from database import Connector
-from file_reader import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget
+from file_reader import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget, ReadTransaction
 from database.storing import StoreCustomer, StoreProduct, StoresSalesOutlet, StoreSalesTarget
 
 connection = Connector.connect("root", "localhost", "0000")
@@ -15,7 +15,9 @@ database_cursor.execute("USE SalesDataBase")
 # product_list = ReadProduct.read_product_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\product.csv")
 # sales_outlet_list = ReadSalesOutlet.read_sales_outlet_file(
 #   "C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\sales_outlet.csv")
-sales_target_list = ReadSalesTarget.read_sales_target_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\sales targets.csv")
+# sales_target_list = ReadSalesTarget.read_sales_target_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\sales targets.csv")
+transaction_list = ReadTransaction.read_transaction_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\201904 sales reciepts.csv")
+print(transaction_list[0])
 # ---------------------------------------------------------
 
 # ------------------ Store data files to database---------------------

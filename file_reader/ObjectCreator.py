@@ -43,11 +43,17 @@ def create_sales_target_obj(sales_outlet_id, year_month, beans_goal, beverage_go
     return sales_target
 
 
-def create_transaction_obj(transaction_id, instore_yn, customer_id, sales_outlet_id):
+def create_transaction_obj(transaction_id, instore_yn, customer_id, sales_outlet_id, transaction_date,
+                           transaction_time, quantity, line_item_amount, product_id):
     transaction = {
         "transaction_id": transaction_id,
         "instore_yn": instore_yn,
         "customer_id": customer_id,
         "sales_outlet_id": sales_outlet_id,
+        "transaction_date": transaction_date,
+        "transaction_time": transaction_time,
+        "quantity": quantity,
+        "line_item_amount": line_item_amount,
+        "product_id": product_id,
     }
     return transaction

@@ -16,5 +16,3 @@ def store_transaction(transaction_id, instore_yn, customer_id, sales_outlet_id, 
     values = (str(transaction_id), str(instore_yn), str(customer_id), str(sales_outlet_id))
     cursor.execute(insert_transaction_sql, values)
     mydb.commit()
-
-
