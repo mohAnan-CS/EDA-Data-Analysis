@@ -1,7 +1,8 @@
-def get_transaction_in_out(cursor):
+def get_transaction_in_out(cursor, sales_outlet_id):
     sql = "SELECT t.transaction_id , t.instore_yn " \
           "FROM transaction " \
-          "AS t"
+          "AS t " \
+          "WHERE t.sales_outlet_id = " + str(sales_outlet_id)
     cursor.execute(sql)
     records = cursor.fetchall()
     outside, inside = 0, 0
@@ -13,5 +14,5 @@ def get_transaction_in_out(cursor):
             else:
                 outside += 1
 
-    print("Number of transaction inside the outlet :" + str(inside))
-    print("Number of transaction outside the outlet :" + str(outside))
+    print("Number of transaction inside outlet " + str(sales_outlet_id) + " : " + str(inside))
+    print("Number of transaction outside outlet  " + str(sales_outlet_id) + " : " + str(outside))

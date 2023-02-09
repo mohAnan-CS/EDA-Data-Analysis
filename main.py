@@ -38,7 +38,7 @@ database_cursor.execute("USE SalesDataBase")
 # SalesTime.get_time(False, database_cursor)
 
 # - Is there a lot of demand outside the restaurant?
-# DemandInOutOutlet.get_transaction_in_out(database_cursor, 3)
+DemandInOutOutlet.get_transaction_in_out(database_cursor, 3)
 
 # -  Are males more popular or females?
 MaleFemalePopular.get_male_female(database_cursor, 3)
