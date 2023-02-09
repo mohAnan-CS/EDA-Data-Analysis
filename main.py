@@ -1,7 +1,7 @@
 from database import Connector
 from file_reader import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget, ReadTransaction
 from database.storing import StoreCustomer, StoreProduct, StoresSalesOutlet, StoreSalesTarget, StoreTransaction
-from database.eda import SoldProducts
+from database.eda import SoldProducts, SalesTime
 
 connection = Connector.connect("root", "localhost", "0000")
 database_cursor = connection.cursor()
@@ -28,4 +28,11 @@ database_cursor.execute("USE SalesDataBase")
 # ----------------------------------------------------------
 
 # ------------------ EDA Questions ---------------------
-SoldProducts.get_sold_products_sorted(database_cursor, False)
+
+# -  What are the most sold items?
+# -  What are the least sold items?
+# SoldProducts.get_sold_products_sorted(database_cursor, False)
+
+# - Which is the best times for selling in store ?
+# - which is the wrost times for selling in store ?
+SalesTime.get_sales_time(database_cursor)
