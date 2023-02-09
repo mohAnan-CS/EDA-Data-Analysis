@@ -1,7 +1,7 @@
 from database import Connector
 from file_reader import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget, ReadTransaction
 from database.storing import StoreCustomer, StoreProduct, StoresSalesOutlet, StoreSalesTarget, StoreTransaction
-from database.eda import SoldProducts, SalesTime
+from database.eda import SoldProducts, SalesTime, DemandInOutOutlet
 
 connection = Connector.connect("root", "localhost", "0000")
 database_cursor = connection.cursor()
@@ -34,5 +34,9 @@ database_cursor.execute("USE SalesDataBase")
 # SoldProducts.get_sold_products_sorted(database_cursor, False)
 
 # - Which is the best times for selling in store ?
-# - which is the wrost times for selling in store ?
-SalesTime.get_sales_time(database_cursor)
+# - which is the worst times for selling in store ?
+# SalesTime.get_time(False, database_cursor)
+
+# - Is there a lot of demand outside the restaurant?
+# DemandInOutOutlet.get_transaction_in_out(database_cursor)
+
