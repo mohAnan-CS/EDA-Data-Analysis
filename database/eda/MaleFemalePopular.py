@@ -17,7 +17,14 @@ def get_male_female(cursor, sales_outlet_id):
             elif gender == "F":
                 female += 1
 
-        print("Number of male customer in outlet " + str(sales_outlet_id) + " : " + str(male))
-        print("Number of female customer in outlets :" + str(sales_outlet_id) + " : " + str(female))
+        print("* Number of male customer in outlet " + str(sales_outlet_id) + " : " + str(male))
+        print("* Number of female customer in outlets :" + str(sales_outlet_id) + " : " + str(female))
     else:
-        print("Outlet " + str(sales_outlet_id) + " not found or There is not any customer yet")
+        print("* Outlet " + str(sales_outlet_id) + " not found or There is not any customer yet")
+
+    if male > female:
+        print("Female is popular in store ...")
+    elif male < female:
+        print("Male is popular in store ...")
+    else:
+        print("Male and Female are equal ...")

@@ -47,18 +47,18 @@ def print_products(is_top_sold, product_quantities):
         product_top = sorted(product_quantities.items(), key=lambda x: x[1]['quantity'], reverse=True)
         count = 0
         for product in product_top:
-            if count != 10:
+            if count != 5:
                 print(product)
-            elif count == 10:
+            elif count == 5:
                 break
             count += 1
     else:
         product_top = sorted(product_quantities.items(), key=lambda x: x[1]['quantity'], reverse=False)
         count = 0
         for product in product_top:
-            if count != 10:
+            if count != 5:
                 print(product)
-            elif count == 10:
+            elif count == 5:
                 break
             count += 1
 

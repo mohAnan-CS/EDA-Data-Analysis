@@ -31,22 +31,59 @@ database_cursor.execute("USE SalesDataBase")
 
 # -  What are the most sold items?
 # -  What are the least sold items?
-# SoldProducts.get_sold_products_sorted(database_cursor, False)
+print()
+print("------------------------ EDA Questions with their answers ------------------------")
+print()
+print("- What are the most 5 sold items ?")
+print()
+SoldProducts.get_sold_products_sorted(database_cursor, True)
+print()
+print("- What are the less 5 sold items ?")
+print()
+SoldProducts.get_sold_products_sorted(database_cursor, False)
+print()
+print("-----------------------------------------------------------------------------------------------------------")
+print()
 
 # - Which is the best times for selling in store ?
 # - which is the worst times for selling in store ?
-# SalesTime.get_time(False, database_cursor)
-
+print("- Which is the best time for selling in store ?")
+print()
+SalesTime.get_time(True, database_cursor)
+print()
+print("- Which is the worst time for selling in store ?")
+print()
+SalesTime.get_time(False, database_cursor)
+print()
+print("-----------------------------------------------------------------------------------------------------------")
+print()
 # - Is there a lot of demand outside the restaurant ?
-# DemandInOutOutlet.get_transaction_in_out(database_cursor, 3)
-
+print("- Is there a lot of demand outside the store 3 ?")
+print()
+DemandInOutOutlet.get_transaction_in_out(database_cursor, 3)
+print()
+print("-----------------------------------------------------------------------------------------------------------")
+print()
 # -  Are males more popular or females in certain outlet?
-# MaleFemalePopular.get_male_female(database_cursor, 3)
-
+print("- Are males more popular or females in 3 outlet")
+print()
+MaleFemalePopular.get_male_female(database_cursor, 3)
+print()
+print("-----------------------------------------------------------------------------------------------------------")
+print()
 # - what is the first customers since outlet opened ?
-# FirstCustomers.get_customers(database_cursor, 4)
-
+print("- What is the first five customer sice outlet opened ?")
+print()
+FirstCustomers.get_customers(database_cursor, 4)
+print()
+print("-----------------------------------------------------------------------------------------------------------")
+print()
 # - is beans goal reach for last month ?
 # - is beverage goal reach for last month ?
 # - is merchandise goal reach for last month ?
-OutletGoals.get_goals(database_cursor, "Apr-19", 3)
+# is reach total goal ?
+print("- Is beans, beverage, merchandise, total goal are reach in -> 2019-04 ?")
+print()
+OutletGoals.get_sales_goal(database_cursor, "2019-04", 4)
+print()
+print("-----------------------------------------------------------------------------------------------------------")

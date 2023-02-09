@@ -20,7 +20,7 @@ def get_customers(cursor, number_customer):
             if count == number_customer:
                 break
             else:
-                print("Customer Name : " + str(customer.name) + " Customer Since : " + str(customer.date.date()))
+                print("* Customer Name : " + str(customer.name) + " | Customer Since : " + str(customer.date.date()))
                 count += 1
     else:
         print("There is not any customer yet")

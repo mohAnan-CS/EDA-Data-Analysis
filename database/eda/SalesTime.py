@@ -48,32 +48,32 @@ def get_time(is_time_best, cursor):
 
 def print_best_time(index):
     if index == 0:
-        print("The best time for selling is from 6:00 - 9:00")
+        print("* The best time for selling is from 6:00 - 9:00")
     elif index == 1:
-        print("The best time for selling is from 9:00 - 12:00")
+        print("* The best time for selling is from 9:00 - 12:00")
     elif index == 2:
-        print("The best time for selling is from 12:00 - 15:00")
+        print("* The best time for selling is from 12:00 - 15:00")
     elif index == 3:
-        print("The best time for selling is from 15:00 - 18:00")
+        print("* The best time for selling is from 15:00 - 18:00")
     elif index == 4:
-        print("The best time for selling is from 18:00 - 21:00")
+        print("* The best time for selling is from 18:00 - 21:00")
     else:
-        print("The best time for selling is from 21:00 - 24:00")
+        print("* The best time for selling is from 21:00 - 24:00")
 
 
 def print_worst_time(index):
     if index == 0:
-        print("The worst time for selling is from 6:00 - 9:00")
+        print("* The worst time for selling is from 6:00 - 9:00")
     elif index == 1:
-        print("The worst time for selling is from 9:00 - 12:00")
+        print("* The worst time for selling is from 9:00 - 12:00")
     elif index == 2:
-        print("The worst time for selling is from 12:00 - 15:00")
+        print("* The worst time for selling is from 12:00 - 15:00")
     elif index == 3:
-        print("The worst time for selling is from 15:00 - 18:00")
+        print("* The worst time for selling is from 15:00 - 18:00")
     elif index == 4:
-        print("The worst time for selling is from 18:00 - 21:00")
+        print("* The worst time for selling is from 18:00 - 21:00")
     else:
-        print("The worst time for selling is from 21:00 - 24:00")
+        print("* The worst time for selling is from 21:00 - 24:00")
 
 
 def create_sales_time_object(transaction_id, transaction_time):
