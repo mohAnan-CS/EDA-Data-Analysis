@@ -7,10 +7,12 @@ def read_product_file(path_file):
     product_list = []
     for index in data.index:
         product_id = data['product_id'][index]
+        product_group = data['product_group'][index]
         product_type = data['product_type'][index]
         product = data['product'][index]
         price = data['current_retail_price'][index]
         product_obj = ObjectCreator.create_product_obj(product_id,
+                                                       product_group,
                                                        product_type,
                                                        product,
                                                        price)

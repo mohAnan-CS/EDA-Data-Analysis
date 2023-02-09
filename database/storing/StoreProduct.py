@@ -3,14 +3,14 @@ def store_all(list_product, cursor, mydb):
         product_id = data['product_id']
         product_found = product_is_found(str(product_id), cursor)
         if not product_found:
-            store_product(data['product_id'], data['product_type'], data['product'], data['current_retail_price'], cursor, mydb)
+            store_product(data['product_id'], data['product_group'], data['product_type'], data['product'], data['current_retail_price'], cursor, mydb)
 
 
-def store_product(product_id, product_type, product, current_retail_price, cursor, mydb):
-    insert_product_sql = "INSERT INTO products (product_id, product_type, product, current_retail_price) " \
-                         "VALUES (%s, %s, %s, %s)"
+def store_product(product_id, product_group, product_type, product, current_retail_price, cursor, mydb):
+    insert_product_sql = "INSERT INTO products (product_id, product_group, product_type, product, current_retail_price) " \
+                         "VALUES (%s, %s, %s, %s, %s)"
     price = float(current_retail_price.replace("$", ""))
-    values = (str(product_id), product_type, product, price)
+    values = (str(product_id), product_group, product_type, product, price)
     cursor.execute(insert_product_sql, values)
     mydb.commit()
 
