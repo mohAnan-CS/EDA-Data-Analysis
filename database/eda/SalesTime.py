@@ -12,11 +12,12 @@ def get_sales_time(cursor):
             sales_time_obj = create_sales_time_object(transaction_id, transaction_time)
             sales_time_array.append(sales_time_obj)
 
-    print_times(False, sales_time_array)
+    return sales_time_array
 
 
-def print_times(is_time_best, sales_time_array):
+def get_time(is_time_best, cursor):
 
+    sales_time_array = get_sales_time(cursor)
     # six_nine, nine_twelve, twelve_fifteen, fifteen_eighteen, eighteen_twenty_one, twenty_one_twenty_four = 0, 0, 0, 0, 0, 0
     array_hours = [0, 0, 0, 0, 0, 0]
     for sale in sales_time_array:
@@ -38,33 +39,41 @@ def print_times(is_time_best, sales_time_array):
     if is_time_best:
         best_time = max(array_hours)
         index_best_time = array_hours.index(best_time)
-        if index_best_time == 0:
-            print("The best time for selling is from 6:00 - 9:00")
-        elif index_best_time == 1:
-            print("The best time for selling is from 9:00 - 12:00")
-        elif index_best_time == 2:
-            print("The best time for selling is from 12:00 - 15:00")
-        elif index_best_time == 3:
-            print("The best time for selling is from 15:00 - 18:00")
-        elif index_best_time == 4:
-            print("The best time for selling is from 18:00 - 21:00")
-        else:
-            print("The best time for selling is from 21:00 - 24:00")
+        print_best_time(index_best_time)
     else:
         worst_time = min(array_hours)
         index_worst_time = array_hours.index(worst_time)
-        if index_worst_time == 0:
-            print("The worst time for selling is from 6:00 - 9:00")
-        elif index_worst_time == 1:
-            print("The worst time for selling is from 9:00 - 12:00")
-        elif index_worst_time == 2:
-            print("The worst time for selling is from 12:00 - 15:00")
-        elif index_worst_time == 3:
-            print("The worst time for selling is from 15:00 - 18:00")
-        elif index_worst_time == 4:
-            print("The worst time for selling is from 18:00 - 21:00")
-        else:
-            print("The worst time for selling is from 21:00 - 24:00")
+        print_worst_time(index_worst_time)
+
+
+def print_best_time(index):
+    if index == 0:
+        print("The best time for selling is from 6:00 - 9:00")
+    elif index == 1:
+        print("The best time for selling is from 9:00 - 12:00")
+    elif index == 2:
+        print("The best time for selling is from 12:00 - 15:00")
+    elif index == 3:
+        print("The best time for selling is from 15:00 - 18:00")
+    elif index == 4:
+        print("The best time for selling is from 18:00 - 21:00")
+    else:
+        print("The best time for selling is from 21:00 - 24:00")
+
+
+def print_worst_time(index):
+    if index == 0:
+        print("The worst time for selling is from 6:00 - 9:00")
+    elif index == 1:
+        print("The worst time for selling is from 9:00 - 12:00")
+    elif index == 2:
+        print("The worst time for selling is from 12:00 - 15:00")
+    elif index == 3:
+        print("The worst time for selling is from 15:00 - 18:00")
+    elif index == 4:
+        print("The worst time for selling is from 18:00 - 21:00")
+    else:
+        print("The worst time for selling is from 21:00 - 24:00")
 
 
 def create_sales_time_object(transaction_id, transaction_time):
