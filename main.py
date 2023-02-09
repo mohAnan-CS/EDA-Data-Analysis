@@ -28,4 +28,4 @@ database_cursor.execute("USE SalesDataBase")
 # ----------------------------------------------------------
 
 # ------------------ EDA Questions ---------------------
-SoldProducts.get_most_sold_items(database_cursor)
+SoldProducts.get_sold_products_sorted(database_cursor, False)

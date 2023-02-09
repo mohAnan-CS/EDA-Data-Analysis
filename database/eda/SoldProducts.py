@@ -10,13 +10,18 @@ def get_sold_products(cursor):
     cursor.execute(sql)
     records = cursor.fetchall()
     products_hashmap = {}
+    products_array = []
     if len(records) >= 1:
         for row in records:
             products_hashmap[row[0]] = create_sold_object(str(row[0]), str(row[1]), str(row[2]), str(row[3]),
                                                           str(row[4]))
+            products_array.append(create_sold_object(str(row[0]), str(row[1]), str(row[2]), str(row[3]), str(row[4])))
+
+    return products_hashmap
 
 
-def get_top_sold_products(products_hashmap):
+def get_sold_products_sorted(cursor, is_top_sold):
+    products_hashmap = get_sold_products(cursor)
     product_quantities = {}
     for entry in products_hashmap.values():
         product_id = entry["product_id"]
@@ -32,7 +37,30 @@ def get_top_sold_products(products_hashmap):
                 "product": product,
                 "quantity": quantity
             }
-    print(type(sorted(product_quantities.items(), key=lambda x: x[1]['quantity'], reverse=True)))
+
+    print_products(is_top_sold, product_quantities)
+
+
+def print_products(is_top_sold, product_quantities):
+
+    if is_top_sold:
+        product_top = sorted(product_quantities.items(), key=lambda x: x[1]['quantity'], reverse=True)
+        count = 0
+        for product in product_top:
+            if count != 10:
+                print(product)
+            elif count == 10:
+                break
+            count += 1
+    else:
+        product_top = sorted(product_quantities.items(), key=lambda x: x[1]['quantity'], reverse=False)
+        count = 0
+        for product in product_top:
+            if count != 10:
+                print(product)
+            elif count == 10:
+                break
+            count += 1
 
 
 def create_sold_object(transaction_id, product_id, product_type, product, quantity):
