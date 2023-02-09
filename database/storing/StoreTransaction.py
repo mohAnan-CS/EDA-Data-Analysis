@@ -26,7 +26,8 @@ def store_transaction(transaction_id, instore_yn, customer_id, sales_outlet_id, 
     elif instore_yn == 'N':
         in_store = False
 
-    insert_transaction_sql = "insert into transaction (transaction_id, instore_yn, customer_id, sales_outlet_id) VALUES (%s, %s, %s, %s)"
+    insert_transaction_sql = "INSERT INTO transaction (transaction_id, instore_yn, customer_id, sales_outlet_id) " \
+                             "VALUES (%s, %s, %s, %s)"
     values = (str(transaction_id), in_store, str(customer_id), str(sales_outlet_id))
 
     cursor.execute(insert_transaction_sql, values)
@@ -34,21 +35,23 @@ def store_transaction(transaction_id, instore_yn, customer_id, sales_outlet_id, 
 
 
 def store_transaction_product(transaction_id, quantity, line_item_amount, product_id, cursor, mydb):
-    insert_transaction_product_sql = "insert into transaction_product (transaction_id, quantity, line_item_amount, product_id) VALUES (%s, %s, %s, %s)"
+    insert_transaction_product_sql = "INSERT INTO transaction_product (transaction_id, quantity, line_item_amount, product_id) " \
+                                     "VALUES (%s, %s, %s, %s)"
     values = (str(transaction_id), str(quantity), str(line_item_amount), str(product_id))
     cursor.execute(insert_transaction_product_sql, values)
     mydb.commit()
 
 
 def store_transaction_details(transaction_id, transaction_date, transaction_time, cursor, mydb):
-    insert_transaction_details_sql = "insert into transaction_details (transaction_id, transaction_date, transaction_time) VALUES (%s, %s, %s)"
+    insert_transaction_details_sql = "INSERT INTO transaction_details (transaction_id, transaction_date, transaction_time) " \
+                                     "VALUES (%s, %s, %s)"
     values = (str(transaction_id), transaction_date, transaction_time)
     cursor.execute(insert_transaction_details_sql, values)
     mydb.commit()
 
 
 def transaction_is_found(transaction_id, cursor):
-    check_transaction_sql = "select * from transaction where transaction_id = " + str(transaction_id) + ";"
+    check_transaction_sql = "SELECT * FROM transaction WHERE transaction_id = " + str(transaction_id) + ";"
     cursor.execute(check_transaction_sql)
     transaction_records = cursor.fetchall()
     if len(transaction_records) >= 1:

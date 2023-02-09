@@ -7,14 +7,17 @@ def store_all(list_sales_outlet, cursor, mydb):
 
 
 def store_sales_outlet(sales_outlet_id, sales_outlet_type, store_square_feet, store_address, cursor, mydb):
-    insert_sales_outlet_sql = "insert into sales_outlet (sales_outlet_id, sales_outlet_type, store_square_feet, store_address) VALUES (%s, %s, %s, %s)"
+    insert_sales_outlet_sql = "INSERT INTO sales_outlet (sales_outlet_id, sales_outlet_type, store_square_feet, store_address) " \
+                              "VALUES (%s, %s, %s, %s)"
     values = (str(sales_outlet_id), sales_outlet_type, str(store_square_feet), store_address)
     cursor.execute(insert_sales_outlet_sql, values)
     mydb.commit()
 
 
 def sales_outlet_is_found(sales_outlet_id, cursor):
-    check_sales_outlet_sql = "select * from sales_outlet where sales_outlet_id = " + sales_outlet_id + ";"
+    check_sales_outlet_sql = "SELECT * " \
+                             "FROM sales_outlet " \
+                             "WHERE sales_outlet_id = " + sales_outlet_id + ";"
     cursor.execute(check_sales_outlet_sql)
     sales_outlet_records = cursor.fetchall()
     if len(sales_outlet_records) >= 1:

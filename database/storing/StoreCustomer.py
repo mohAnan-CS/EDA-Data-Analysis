@@ -7,14 +7,17 @@ def store_all(list_customer, cursor, mydb):
 
 
 def store_customer(customer_id, customer_first_name, customer_since, gender, birthdate, cursor, mydb):
-    insert_customer_sql = "insert into customer (customer_id, customer_first_name, customer_since, gender, birthdate) values (%s, %s, %s, %s ,%s)"
+    insert_customer_sql = "INSERT INTO customer (customer_id, customer_first_name, customer_since, gender, birthdate) " \
+                          "VALUES (%s, %s, %s, %s ,%s)"
     values = (str(customer_id), customer_first_name, customer_since, gender, birthdate)
     cursor.execute(insert_customer_sql, values)
     mydb.commit()
 
 
 def customer_is_found(customer_id, cursor):
-    check_customer_sql = "select * from customer where customer_id = " + customer_id + ";"
+    check_customer_sql = "SELECT * " \
+                         "FROM customer " \
+                         "WHERE customer_id = " + customer_id + ";"
     cursor.execute(check_customer_sql)
     customer_records = cursor.fetchall()
     if len(customer_records) >= 1:

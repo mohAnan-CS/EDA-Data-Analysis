@@ -7,7 +7,8 @@ def store_all(list_product, cursor, mydb):
 
 
 def store_product(product_id, product_type, product, current_retail_price, cursor, mydb):
-    insert_product_sql = "insert into products (product_id, product_type, product, current_retail_price) VALUES (%s, %s, %s, %s)"
+    insert_product_sql = "INSERT INTO products (product_id, product_type, product, current_retail_price) " \
+                         "VALUES (%s, %s, %s, %s)"
     price = float(current_retail_price.replace("$", ""))
     values = (str(product_id), product_type, product, price)
     cursor.execute(insert_product_sql, values)
@@ -15,7 +16,9 @@ def store_product(product_id, product_type, product, current_retail_price, curso
 
 
 def product_is_found(product_id, cursor):
-    check_product_sql = "select * from products where product_id = " + product_id + ";"
+    check_product_sql = "SELECT * " \
+                        "FROM products " \
+                        "WHERE product_id = " + product_id + ";"
     cursor.execute(check_product_sql)
     product_records = cursor.fetchall()
     if len(product_records) >= 1:

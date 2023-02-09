@@ -1,7 +1,7 @@
 from database import Connector
 from file_reader import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget, ReadTransaction
 from database.storing import StoreCustomer, StoreProduct, StoresSalesOutlet, StoreSalesTarget, StoreTransaction
-from database.eda import SoldProducts, SalesTime, DemandInOutOutlet, MaleFemalePopular
+from database.eda import SoldProducts, SalesTime, DemandInOutOutlet, MaleFemalePopular, FirstCustomers
 
 connection = Connector.connect("root", "localhost", "0000")
 database_cursor = connection.cursor()
@@ -38,7 +38,10 @@ database_cursor.execute("USE SalesDataBase")
 # SalesTime.get_time(False, database_cursor)
 
 # - Is there a lot of demand outside the restaurant?
-DemandInOutOutlet.get_transaction_in_out(database_cursor, 3)
+# DemandInOutOutlet.get_transaction_in_out(database_cursor, 3)
 
-# -  Are males more popular or females?
-MaleFemalePopular.get_male_female(database_cursor, 3)
+# -  Are males more popular or females in certain outlet?
+# MaleFemalePopular.get_male_female(database_cursor, 3)
+
+# - what is the first customers since outlet opened ?
+FirstCustomers.get_customers(database_cursor, 4)
