@@ -1,5 +1,4 @@
 def get_transaction_in_out(cursor):
-    # SELECT t.transaction_id , t.instore_yn FROM transaction AS t
     sql = "SELECT t.transaction_id , t.instore_yn " \
           "FROM transaction " \
           "AS t"
