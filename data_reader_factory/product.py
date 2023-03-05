@@ -1,5 +1,5 @@
 import pandas as pd
-from file_reader import ObjectCreator
+from data_reader_factory import object_creator
 
 
 def read_product_file(path_file):

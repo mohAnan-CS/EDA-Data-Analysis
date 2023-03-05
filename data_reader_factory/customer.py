@@ -1,5 +1,5 @@
 import pandas as pd
-from file_reader import ObjectCreator
+from data_reader_factory import object_creator
 
 
 def read_customer_file(path_file):
@@ -15,7 +15,7 @@ def read_customer_file(path_file):
                                                          cus_first_name,
                                                          cus_since,
                                                          cus_birthdate,
-                                                         cus_gender,)
+                                                         cus_gender, )
 
         customer_list.append(customer_obj)
 

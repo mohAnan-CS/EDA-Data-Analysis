@@ -1,4 +1,4 @@
-from database.storing import StoreCustomer, StoresSalesOutlet
+from data_storing_factory import customer, sales_outlet
 
 
 def store_all(list_transaction, cursor, mydb):

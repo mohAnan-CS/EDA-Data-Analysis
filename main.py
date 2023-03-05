@@ -1,7 +1,6 @@
-from database import Connector
-from file_reader import ReadCustomer, ReadProduct, ReadSalesOutlet, ReadSalesTarget, ReadTransaction
-from database.storing import StoreCustomer, StoreProduct, StoresSalesOutlet, StoreSalesTarget, StoreTransaction
-from database.eda import SoldProducts, SalesTime, DemandInOutOutlet, MaleFemalePopular, FirstCustomers, OutletGoals
+from database_factory import connector
+from data_analysis_factory import demand_outlet, first_customers, gender_popular, outlet_goals, sales_time, \
+    sold_products
 
 connection = Connector.connect("root", "localhost", "0000")
 database_cursor = connection.cursor()
@@ -19,7 +18,7 @@ database_cursor.execute("USE SalesDataBase")
 # transaction_list = ReadTransaction.read_transaction_file("C:\\Users\\twitter\\PycharmProjects\\ProjectTrainingAsal\\files_data\\201904 sales reciepts.csv")
 # ---------------------------------------------------------
 
-# ------------------ Store data files to database---------------------
+# ------------------ Store data files to database_factory---------------------
 # StoreCustomer.store_all(customer_list, database_cursor, connection)
 # StoreProduct.store_all(product_list, database_cursor, connection)
 # StoresSalesOutlet.store_all(sales_outlet_list, database_cursor, connection)
